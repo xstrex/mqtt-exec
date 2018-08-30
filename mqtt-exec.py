@@ -12,12 +12,17 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	if msg.payload == 'on':
-		print("Message received: " +str(msg.payload))
+		screen_on()
+	if msg.payload == 'off':
+		screen_off()
 
-	# try:
-	# 	subprocess.run(["CMD", "str(msg.payload)"])
-	# except Exception as e:
-	# 	print("Failed to execute command : " + CMD + str(msg.payload))
+def screen_on():
+	subprocess.call(["/home/pi/scripts/screen", "on"])
+	return
+
+def screen_off():
+	subprocess.call(["/home/pi/scripts/screen", "off"])
+	return
 
 client = mqtt.Client()
 client.on_connect = on_connect
