@@ -17,11 +17,11 @@ def on_message(client, userdata, msg):
 		screen_off()
 
 def screen_on():
-	subprocess.call(["/home/pi/scripts/screen", "on"])
+	subprocess.call([CMD, "on"])
 	return
 
 def screen_off():
-	subprocess.call(["/home/pi/scripts/screen", "off"])
+	subprocess.call([CMD, "off"])
 	return
 
 client = mqtt.Client()
