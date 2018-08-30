@@ -1,3 +1,4 @@
+import sys, os
 import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "jabba.home.morphx.net"
