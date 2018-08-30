@@ -3,6 +3,7 @@ import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "jabba.home.morphx.net"
 MQTT_PATH = "tablet/tnix/screen"
+CMD = "/home/pi/scripts/screen"
 
 def on_connect(client, userdata, flags, rc):
 	print("Connected with result code "+str(rc))
@@ -11,7 +12,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	try:
-		subprocess.call('/home/pi/scripts/screen', msg.payload['command'])
+		subprocess.call(CMD, msg.payload['command'])
 	except Exception as e:
 		print("Failed to execute command : "+str(msg.payload))
 
