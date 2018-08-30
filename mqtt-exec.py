@@ -14,7 +14,7 @@ def on_message(client, userdata, msg):
 	try:
 		subprocess.run([CMD, str(msg.payload)])
 	except Exception as e:
-		print("Failed to execute command : CMD" +str(msg.payload))
+		print("Failed to execute command : ",CMD, +str(msg.payload))
 
 client = mqtt.Client()
 client.on_connect = on_connect
