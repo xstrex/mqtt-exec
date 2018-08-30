@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "jabba.home.morphx.net"
-MQTT_PATH = "tablet"
+MQTT_PATH = "tablet/tnix/screen"
 
 def on_connect(client, userdata, flags, rc):
 	print("Connected with result code "+str(rc))
