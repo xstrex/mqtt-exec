@@ -12,7 +12,7 @@ def on_message(client, userdata, msg):
 	try:
 		exec(msg.payload['command'])
 	except Exception as e:
-		print("Failed to execute command : " + str(msg.payload)['command'])
+		print("Failed to execute command : " + (msg.payload)['command'])
 
 client = mqtt.Client()
 client.on_connect = on_connect
