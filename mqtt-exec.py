@@ -1,4 +1,4 @@
-import sys, os
+from subprocess import call
 import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "jabba.home.morphx.net"
@@ -11,7 +11,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	try:
-		exec(msg.payload['command'])
+		call(msg.payload['command'])
 	except Exception as e:
 		print("Failed to execute command : "+str(msg.payload))
 
