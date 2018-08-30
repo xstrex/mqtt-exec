@@ -12,7 +12,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	try:
-		subprocess.run([CMD, str(msg.payload)])
+		subprocess.run(["CMD", "str(msg.payload)"])
 	except Exception as e:
 		print("Failed to execute command : " + CMD + str(msg.payload))
 
