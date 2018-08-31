@@ -2,12 +2,13 @@ import subprocess
 import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "jabba.home.morphx.net"
-MQTT_PATH = "tablet/tnix/screen"
+SCREEN_TOPIC = "tablet/tnix/screen"
+STATUS_TOPIC = "tablet/tnix/status"
 CMD = "/home/pi/scripts/screen"
 
 def on_connect(client, userdata, flags, rc):
 	print("Connected with result code "+str(rc))
-	client.subscribe(MQTT_PATH)
+	client.subscribe(SCREEN_TOPIC)
 
 def screen_on():
 	subprocess.call([CMD, "on"])
@@ -18,8 +19,8 @@ def screen_off():
 	return
 
 def clear():
-	print("Clearing retain flags on topic: "+str(MQTT_PATH))
-	client.publish(MQTT_PATH, None, 1, True);
+	print("Clearing retain flags on topic: "+str(SCREEN_TOPIC))
+	client.publish(SCREEN_TOPIC, None, 1, True);
 	return
 
 def on_message(client, userdata, msg):
