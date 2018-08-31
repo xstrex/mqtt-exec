@@ -17,7 +17,7 @@ def screen_off():
 	subprocess.call([CMD, "off"])
 	return
 
-def clear(client, userdata, flags, rc):
+def clear():
 	client.publish(msg.topic, None, 1, True);
 	return
 
