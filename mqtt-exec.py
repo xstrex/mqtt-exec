@@ -18,7 +18,7 @@ def screen_off():
 	return
 
 def clear(client, userdata, flags, rc):
-	client.publish(topic, new byte[0],0,true);
+	client.publish(msg.topic, None, 1, True);
 	pass
 
 def on_message(client, userdata, msg):
