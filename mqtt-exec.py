@@ -18,6 +18,7 @@ def screen_off():
 	return
 
 def clear():
+	print("Clearing retain flags on topic: "+str(MQTT_PATH))
 	client.publish(MQTT_PATH, None, 1, True);
 	return
 
