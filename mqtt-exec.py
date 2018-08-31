@@ -39,8 +39,10 @@ def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	if msg.payload == 'on':
 		screen_on()
+		status()
 	if msg.payload == 'off':
 		screen_off()
+		status()
 	if msg.payload == 'clear':
 		clear()
 	if msg.payload == 'status':
