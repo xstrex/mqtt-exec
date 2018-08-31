@@ -17,6 +17,10 @@ def screen_off():
 	subprocess.call([CMD, "off"])
 	return
 
+def clear(client, userdata, flags, rc):
+	client.publish(topic, new byte[0],0,true);
+	pass
+
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	if msg.payload == 'on':
