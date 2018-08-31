@@ -18,7 +18,7 @@ def screen_off():
 	return
 
 def clear():
-	client.publish(msg.topic, None, 1, True);
+	client.publish(MQTT_PATH, None, 1, True);
 	return
 
 def on_message(client, userdata, msg):
