@@ -10,7 +10,7 @@ def on_connect(client, userdata, flags, rc):
 	print("Connected with result code "+str(rc))
 	client.subscribe(SCREEN_TOPIC)
 	print("MQTT Server is: "+str(MQTT_SERVER))
-	print("Screen Control topic is: "+str(SCEEEN_TOPIC))
+	print("Screen Control topic is: "+str(SCREEN_TOPIC))
 	print("Screen Status topic is: "+str(STATUS_TOPIC))
 	print("Command is: "+str(CMD))
 
