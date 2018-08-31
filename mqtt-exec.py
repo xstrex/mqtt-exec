@@ -19,7 +19,7 @@ def screen_off():
 
 def clear(client, userdata, flags, rc):
 	client.publish(msg.topic, None, 1, True);
-	pass
+	return
 
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
