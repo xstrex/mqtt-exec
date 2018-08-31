@@ -11,10 +11,12 @@ def on_connect(client, userdata, flags, rc):
 	client.subscribe(SCREEN_TOPIC)
 
 def screen_on():
+	print("Running screen on command")
 	subprocess.call([CMD, "on"])
 	return
 
 def screen_off():
+	print("Running screen off command")
 	subprocess.call([CMD, "off"])
 	return
 
@@ -25,7 +27,7 @@ def clear():
 
 def status():
 	STAT_OUT = subprocess.check_output([CMD, "status"])
-	print("Publishing screen status on topic: "+str(STATUS_TOPIC))
+	# print("Publishing screen status on topic: "+str(STATUS_TOPIC))
 	print("Screen is currently: "+str(STAT_OUT))
 	client.publish(STATUS_TOPIC, STAT_OUT, qos=0, retain=False)
 	return
