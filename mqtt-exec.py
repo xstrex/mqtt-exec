@@ -9,6 +9,10 @@ CMD = "/home/pi/scripts/screen"
 def on_connect(client, userdata, flags, rc):
 	print("Connected with result code "+str(rc))
 	client.subscribe(SCREEN_TOPIC)
+	print("MQTT Server is: "+str(MQTT_SERVER))
+	print("Screen Control topic is: "+str(SCEEEN_TOPIC))
+	print("Screen Status topic is: "+str(STATUS_TOPIC))
+	print("Command is: "+str(CMD))
 
 def screen_on():
 	print("Running screen on command")
@@ -27,7 +31,6 @@ def clear():
 
 def status():
 	STAT_OUT = subprocess.check_output([CMD, "status"])
-	# print("Publishing screen status on topic: "+str(STATUS_TOPIC))
 	print("Screen is currently: "+str(STAT_OUT))
 	client.publish(STATUS_TOPIC, STAT_OUT, qos=0, retain=False)
 	return
