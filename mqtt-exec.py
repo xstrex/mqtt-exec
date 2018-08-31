@@ -13,6 +13,7 @@ def on_connect(client, userdata, flags, rc):
 	print("Screen Control topic is: "+str(SCREEN_TOPIC))
 	print("Screen Status topic is: "+str(STATUS_TOPIC))
 	print("Command is: "+str(CMD))
+	status()
 
 def screen_on():
 	print("Running screen on command")
