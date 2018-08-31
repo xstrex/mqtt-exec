@@ -23,6 +23,13 @@ def clear():
 	client.publish(SCREEN_TOPIC, None, 1, True);
 	return
 
+def status():
+	STAT_OUT = check_output([CMD, "status"])
+	print("Publishing screen status on topic: "+str(STATUS_TOPIC))
+	print("Screen is currently: "+str(STAT_OUT))
+	client.publish(STATUS_TOPIC, STAT_OUT, qos=0, retain=False)
+	return
+
 def on_message(client, userdata, msg):
 	print(msg.topic+" "+str(msg.payload))
 	if msg.payload == 'on':
@@ -31,6 +38,8 @@ def on_message(client, userdata, msg):
 		screen_off()
 	if msg.payload == 'clear':
 		clear()
+	if msg.payload == 'status':
+		status()
 
 client = mqtt.Client()
 client.on_connect = on_connect
