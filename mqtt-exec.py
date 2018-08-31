@@ -27,6 +27,8 @@ def on_message(client, userdata, msg):
 		screen_on()
 	if msg.payload == 'off':
 		screen_off()
+	if msg.payload == 'clear';
+		clear()
 
 client = mqtt.Client()
 client.on_connect = on_connect
