@@ -24,7 +24,7 @@ def clear():
 	return
 
 def status():
-	STAT_OUT = check_output([CMD, "status"])
+	STAT_OUT = subprocess.check_output([CMD, "status"])
 	print("Publishing screen status on topic: "+str(STATUS_TOPIC))
 	print("Screen is currently: "+str(STAT_OUT))
 	client.publish(STATUS_TOPIC, STAT_OUT, qos=0, retain=False)
