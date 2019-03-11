@@ -45,6 +45,7 @@ brightness () {
 			usage
 		fi
 	else
+		echo "Sorry, not a number"
 		usage
 	fi
 }
