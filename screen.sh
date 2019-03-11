@@ -45,7 +45,7 @@ brightness () {
 		if [[ "$1" -ge "$min_br" && "$1" -le "$max_br" ]]; then
 			echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 		else
-			echo "Sorry, outside acceptable range"
+			echo "Sorry, outside acceptable range, or not a number"
 			usage
 		fi
 	else
