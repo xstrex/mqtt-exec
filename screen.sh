@@ -19,7 +19,7 @@ max_br="220"
 ###############
 # Functions
 usage () {
-	echo "Usage: $0 [ on ] | [ off ] | [ status ] | [ statusb ] | [ brightness $min_br - $max_br ]"
+	echo "Usage: $0 [ on ] | [ off ] | [ brightness [ # ] | [ $min_br - $max_br ] ] | [ status ]"
 }
 
 on () {
@@ -29,7 +29,6 @@ on () {
 off () {
 	echo 1 | sudo tee /sys/class/backlight/rpi_backlight/bl_power >/dev/null 2>&1
 }
-
 
 bright () {
 	echo "$max_br" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
@@ -60,10 +59,6 @@ status () {
 	fi
 }
 
-statusb () {
-	echo "$statb"
-}
-
 ###############
 # Terminator
 case "$1" in
@@ -75,9 +70,6 @@ case "$1" in
 	;;
 	status)
 		status
-	;;
-	statusb)
-		statusb
 	;;
 	bright)
 		bright
