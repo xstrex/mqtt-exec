@@ -6,7 +6,7 @@ import paho.mqtt.client as mqtt
 MQTT_SERVER = "jabba.home.morphx.net"
 SCREEN_TOPIC = "tablet/tnix/screen"
 STATUS_TOPIC = "tablet/tnix/status"
-CMD = "/home/pi/scripts/screen"
+CMD = "screen.sh"
 
 def on_connect(client, userdata, flags, rc):
 	# print("Connected with result code "+str(rc))
