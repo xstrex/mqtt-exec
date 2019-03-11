@@ -11,14 +11,15 @@
 
 ###############
 # Variables
-stat_cmd=`cat /sys/class/backlight/rpi_backlight/bl_power`
+stat=$(cat /sys/class/backlight/rpi_backlight/bl_power)
+statb=$(cat /sys/class/backlight/rpi_backlight/brightness)
 min_br="15"
 max_br="220"
 
 ###############
 # Functions
 usage () {
-	echo "Usage: $0 [ on ] | [ off ] | [ status ] | [ bright ] | [ dim ] | [ brightness $min_br - $max_br ]"
+	echo "Usage: $0 [ on ] | [ off ] | [ stat ] | [ statb ] | [ brightness $min_br - $max_br ]"
 }
 
 on () {
@@ -31,11 +32,11 @@ off () {
 
 
 bright () {
-	echo 200 | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
+	echo "$max_br" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 }
 
 dim () {
-	echo 90 | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
+	echo "$min_br" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 }
 
 brightness () {
@@ -53,11 +54,15 @@ brightness () {
 }
 
 status () {
-	if [ "$stat_cmd" == 0 ]; then
+	if [ "$stat" == 0 ]; then
 		echo "on"
-	elif [ "$stat_cmd" == 1 ]; then
+	elif [ "$stat" == 1 ]; then
 		echo "off"
 	fi
+}
+
+statusb () {
+	"$statb"
 }
 
 ###############
@@ -70,7 +75,10 @@ case "$1" in
 		off
 	;;
 	status)
-		status
+		stat
+	;;
+	statusb)
+		statb
 	;;
 	bright)
 		bright
