@@ -20,20 +20,20 @@ usage () {
 }
 
 on () {
-	echo 0 | sudo tee /sys/class/backlight/rpi_backlight/bl_power 2>&1>/dev/null
+	echo 0 | sudo tee /sys/class/backlight/rpi_backlight/bl_power >/dev/null 2>&1
 }
 
 off () {
-	echo 1 | sudo tee /sys/class/backlight/rpi_backlight/bl_power 2>&1>/dev/null
+	echo 1 | sudo tee /sys/class/backlight/rpi_backlight/bl_power >/dev/null 2>&1
 }
 
 
 bright () {
-	echo 200 | sudo tee /sys/class/backlight/rpi_backlight/brightness 2>&1>/dev/null
+	echo 200 | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 }
 
 dim () {
-	echo 90 | sudo tee /sys/class/backlight/rpi_backlight/brightness 2>&1>/dev/null
+	echo 90 | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 }
 
 status () {
