@@ -19,7 +19,7 @@ max_br="220"
 ###############
 # Functions
 usage () {
-	echo "Usage: $0 [ on ] | [ off ] | [ stat ] | [ statb ] | [ brightness $min_br - $max_br ]"
+	echo "Usage: $0 [ on ] | [ off ] | [ status ] | [ statusb ] | [ brightness $min_br - $max_br ]"
 }
 
 on () {
@@ -62,7 +62,7 @@ status () {
 }
 
 statusb () {
-	$statb
+	statb
 }
 
 ###############
