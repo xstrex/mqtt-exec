@@ -37,8 +37,15 @@ dim () {
 }
 
 brightness () {
-	echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
-	echo "echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1"
+	if ! [[ "$1" =~ ^[0-9]+$ ]]; then
+		if [[ "$1" -ge 10 && "$1" -le 220 ]]; then
+			echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
+		else
+			usage
+		fi
+	else
+		usage
+	fi
 }
 
 status () {
