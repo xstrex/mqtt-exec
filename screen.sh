@@ -16,7 +16,7 @@ stat_cmd=`cat /sys/class/backlight/rpi_backlight/bl_power`
 ###############
 # Functions
 usage () {
-	echo "Usage: $0 [ on ] | [ off ] | [ status ] | [ bright ] | [ dim ]"
+	echo "Usage: $0 [ on ] | [ off ] | [ status ] | [ bright ] | [ dim ] | [ brightness 10 - 220 ]"
 }
 
 on () {
