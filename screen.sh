@@ -75,10 +75,10 @@ case "$1" in
 		off
 	;;
 	status)
-		stat
+		status
 	;;
 	statusb)
-		statb
+		statusb
 	;;
 	bright)
 		bright
