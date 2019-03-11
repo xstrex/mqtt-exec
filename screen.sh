@@ -62,7 +62,7 @@ status () {
 }
 
 statusb () {
-	"$statb"
+	$statb
 }
 
 ###############
