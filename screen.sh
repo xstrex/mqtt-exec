@@ -48,8 +48,7 @@ brightness () {
 			usage
 		fi
 	else
-		echo "Sorry, not a number"
-		usage
+		echo "$statb"
 	fi
 }
 
