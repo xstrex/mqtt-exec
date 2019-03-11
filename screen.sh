@@ -15,6 +15,8 @@ stat=$(cat /sys/class/backlight/rpi_backlight/bl_power)
 statb=$(cat /sys/class/backlight/rpi_backlight/brightness)
 min_br="15"
 max_br="220"
+br="100"
+dm="30"
 
 ###############
 # Functions
@@ -31,11 +33,11 @@ off () {
 }
 
 bright () {
-	echo "$max_br" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
+	echo "$br" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 }
 
 dim () {
-	echo "$min_br" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
+	echo "$dm" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 }
 
 brightness () {
