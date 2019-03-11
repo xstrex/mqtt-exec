@@ -12,11 +12,13 @@
 ###############
 # Variables
 stat_cmd=`cat /sys/class/backlight/rpi_backlight/bl_power`
+min_br="15"
+max_br="220"
 
 ###############
 # Functions
 usage () {
-	echo "Usage: $0 [ on ] | [ off ] | [ status ] | [ bright ] | [ dim ] | [ brightness 10 - 220 ]"
+	echo "Usage: $0 [ on ] | [ off ] | [ status ] | [ bright ] | [ dim ] | [ brightness $min_br - $max_br ]"
 }
 
 on () {
@@ -37,8 +39,8 @@ dim () {
 }
 
 brightness () {
-	if ! [[ "$1" == ^[0-9]+$ ]]; then
-		if [[ "$1" -ge 10 && "$1" -le 220 ]]; then
+	if [ -n "$1" ] && [ "$1" -eq "$1" ] 2>/dev/null; then
+		if [[ "$1" -ge "$min_br" && "$1" -le "$max_br" ]]; then
 			echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 		else
 			echo "Sorry, outside acceptable range"
