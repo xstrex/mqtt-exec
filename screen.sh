@@ -36,6 +36,11 @@ dim () {
 	echo 90 | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 }
 
+brightness () {
+	echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
+	echo "echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1"
+}
+
 status () {
 	if [ "$stat_cmd" == 0 ]; then
 		echo "on"
@@ -61,6 +66,9 @@ case "$1" in
 	;;
 	dim)
 		dim
+	;;
+	brightness)
+		brightness "$2"
 	;;
 	*)
 		usage
