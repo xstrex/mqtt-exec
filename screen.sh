@@ -52,7 +52,7 @@ brightness () {
 		else
 			echo "$statb"
 		fi
-	else
+	elif [[ "$#" -gt 1 ]]; then
 		usage
 	fi
 }
