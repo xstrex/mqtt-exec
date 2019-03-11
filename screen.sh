@@ -41,19 +41,15 @@ dim () {
 }
 
 brightness () {
-	if [[ "$#" -le 1 ]]; then
-		if [[ -n "$1" ]] && [[ "$1" -eq "$1" ]] 2>/dev/null; then
-			if [[ "$1" -ge "$min_br" && "$1" -le "$max_br" ]]; then
-				echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
-			else
-				echo "Sorry, outside acceptable range"
-				usage
-			fi
+	if [[ -n "$1" ]] && [[ "$1" -eq "$1" ]] 2>/dev/null; then
+		if [[ "$1" -ge "$min_br" && "$1" -le "$max_br" ]]; then
+			echo "$1" | sudo tee /sys/class/backlight/rpi_backlight/brightness >/dev/null 2>&1
 		else
-			echo "$statb"
+			echo "Sorry, outside acceptable range"
+			usage
 		fi
-	elif [[ "$#" -gt 1 ]]; then
-		usage
+	else
+		echo "$statb"
 	fi
 }
 
