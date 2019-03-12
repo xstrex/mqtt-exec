@@ -36,16 +36,16 @@ To control the screen on/off functionality via Home-Assistant, perform the follo
 	- STATUS_TOPIC = "tablet/pi/status"
 0. Reboot (or run mqtt-exec.py in the background)
 0. Add the folllowing to Home-Assistant under the switch component:
-    ```yaml
-    - platform: mqtt
-      name: "Pi Screen"
-      state_topic: "tablet/pi/status"
-      command_topic: "tablet/pi/screen"
-      payload_on: "on"
-      payload_off: "off"
-      state_on: "on\n"
-      state_off: "off\n"
-      qos: 0
-      retain: false
-    ```
+```yaml
+- platform: mqtt
+  name: "Pi Screen"
+  state_topic: "tablet/pi/status"
+  command_topic: "tablet/pi/screen"
+  payload_on: "on"
+  payload_off: "off"
+  state_on: "on\n"
+  state_off: "off\n"
+  qos: 0
+  retain: false
+```
 0. rejoice
