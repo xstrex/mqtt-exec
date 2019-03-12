@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 ############################################################################
-# Purpose: 
+# Purpose: Control the backlight on a 7" Raspberry Pi Screen
 # 
 # Author: Strex
 # Contact: strex@morphx.net
 # Version: 0.1
-# Date: 0/0/00
+# Date: 3/11/19
 ############################################################################
 
 ###############
