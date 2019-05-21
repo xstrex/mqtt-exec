@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 
+import os
 import subprocess
 import paho.mqtt.client as mqtt
 
 MQTT_SERVER = "jabba.home.morphx.net"
 SCREEN_TOPIC = "tablet/tnix/screen"
 STATUS_TOPIC = "tablet/tnix/status"
-CMD = "screen.sh"
+python_dir = os.path.dirname(os.path.realpath(__file__))
+CMD = os.path.join(python_dir, 'screen.sh')
+# CMD = "screen.sh"
 
 def on_connect(client, userdata, flags, rc):
 	# print("Connected with result code "+str(rc))
