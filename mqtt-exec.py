@@ -7,7 +7,7 @@ import paho.mqtt.client as mqtt
 MQTT_SERVER = "jabba.home.morphx.net"
 SCREEN_TOPIC = "tablet/tnix/screen"
 STATUS_TOPIC = "tablet/tnix/status"
-os.path.abspath("screen.sh")
+CMD = os.path.abspath("screen.sh")
 # python_dir = os.path.dirname(os.path.realpath(__file__))
 # CMD = os.path.join(python_dir, 'screen.sh')
 # CMD = "screen.sh"
