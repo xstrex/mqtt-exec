@@ -5,11 +5,11 @@
 #
 # Author: Strex
 # Contact: strex@morphx.net
-# Version: 0.2
-# Date: 12/29/22
+# Version: 0.3
+# Date: 3/5/25
 ############################################################################
 
-prefix=/sys/class/backlight/10-0045/
+prefix=/sys/class/backlight/10-0045
 bl_power="$prefix/bl_power"
 brightness="$prefix/brightness"
 
